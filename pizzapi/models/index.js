@@ -15,6 +15,14 @@ Sauce.hasMany(PizzaOrder);
  * Implement sequelize associations for PizzaOrderTopping here
  */
 
+ PizzaOrder.belongsToMany(Topping, { through: 'PizzaOrderTopping' , 
+  as: 'Toppings'
+});
+
+ Topping.belongsToMany(PizzaOrder, { through: 'PizzaOrderTopping',
+  as: 'PizzaOrders'
+});
+
 module.exports = {
   PizzaOrder,
   PizzaOrderTopping,
