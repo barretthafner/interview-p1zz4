@@ -30,10 +30,14 @@ const PizzaOrderTopping = sequelize.define(
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
+      set() {
+        this.dataValue(sequelize.NOW);
+      },
     },
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
+      defaultValue: sequelize.NOW,
     },
   },
   {},
