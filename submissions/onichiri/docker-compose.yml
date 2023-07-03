@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  pizzapi:
+    build:
+      context: .
+    depends_on:
+      - mysql
+    environment:
+      DB_STRING: 'mysql://michelangelo:cowabunga@mysql:3306/pizzadb'
+    ports:
+      - '7777:7777'
+      - '7778:7778'
+    volumes:
+      - ./pizzapi:/usr/app/pizzapi
+      - ./.sequelizerc:/usr/app/.sequelizerc
+      - ./package.json:/usr/app/package.json
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pizzadb
+      MYSQL_USER: michelangelo
+      MYSQL_PASSWORD: cowabunga
+    ports:
+      - '7779:3306'
+    volumes:
+      - ./mysql_data:/var/lib/mysql

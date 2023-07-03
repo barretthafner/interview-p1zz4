@@ -1,0 +1,7 @@
+const path = require('path');
+
+module.exports = {
+  'seeders-path': path.resolve('pizzapi', 'seeders'),
+  'migrations-path': path.resolve('pizzapi', 'migrations'),
+  'models-path': path.resolve('pizzapi', 'models'),
+};

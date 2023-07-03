@@ -1,0 +1,27 @@
+{
+  "name": "interview-p1zz4",
+  "description": "A delicious backend interview problem",
+  "scripts": {
+    "start": "nodemon --inspect=0.0.0.0:7778 pizzapi/index.js",
+    "test": "mocha",
+    "db:migrate": "sequelize db:migrate --url $DB_STRING",
+    "db:migrate:undo": "sequelize db:migrate:undo:all --url $DB_STRING",
+    "db:seed": "sequelize db:seed:all --url $DB_STRING",
+    "db:seed:undo": "sequelize db:seed:undo:all --url $DB_STRING"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.12.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1"
+  }
+}
